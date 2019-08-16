@@ -1,7 +1,7 @@
 info='GNU Privacy Guard'
 version=2.2.17
 source=https://gnupg.org/ftp/gcrypt/$name/$name-$version.tar.bz2
-deps='bzip2 npth libassuan libksba libgcrypt libgpg-error libedit sqlite'
+deps='npth libassuan libksba libgcrypt sqlite'
 sha256=afa262868e39b651a2db4c071fba90415154243e83a830ca00516f9a807fd514
 build() {
     bonsai_configure --without-ldap
