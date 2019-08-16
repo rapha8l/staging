@@ -1,0 +1,5 @@
+info='X11 Inter-Client Exchange library'
+version=1.0.8
+source=http://x.org/releases/X11R7.7/src/lib/libICE-$version.tar.bz2
+deps='xorg-xorgproto xorg-xtrans'
+#sha256=
