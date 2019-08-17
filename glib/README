@@ -1,0 +1,18 @@
+fails at:
+
+```
+rt1.o: in function `_start_c':
+crt1.c:(.text._start_c+0x1f): undefined reference to `main'
+collect2: error: ld returned 1 exit status
+ninja: subcommand failed
+[1/1007] Linking target gio/tests/slow-connect-preload.so.
+[2/1007] Generating gconstructor_as_data.h with a custom command.
+[3/1007] Generating xdp-dbus with a custom command.
+ninja: job failed: //bin/gcc  -o gio/tests/slow-connect-preload.so 'gio/tests/bcb7ac7@@slow-connect-preload@sha/slow-connect-preload.c.o' -Wl,--no-undefined -Wl,--as-needed -shared -fPIC -Wl,--start-group -Wl,-soname,slow-connect-preload.so -static --static -Wl,-Bstatic -static-libgcc -no-pie -fpic -static-libstdc++ -static-libasan -static-libtsan -static-liblsan -static-libubsan -Wl,--gc-sections -pipe -D_FORTIFY_SOURCE=2 -D_GLIBCXX_ASSERTIONS -Wformat -fexceptions -fstack-protector-strong -fstack-clash-protection -fasynchronous-unwind-tables -fcf-protection -Wl,-z,defs -Wl,-z,now -Wl,-z,relro -Wl,-z,noexecstack -Wl,-z,nodlopen -Wl,-z,nodump -Os -s -w -static --static -fdata-sections -ffunction-sections -s -ldl -Wl,--end-group
+/src/pkgs/gcc-bin/bin/../lib/gcc/x86_64-linux-musl/9.1.0/../../../../x86_64-linux-musl/bin/ld: //lib/../lib/crt1.o: in function `_start_c':
+crt1.c:(.text._start_c+0x1f): undefined reference to `main'
+collect2: error: ld returned 1 exit status
+ninja: subcommand failed
+→ error: glib build() failed
+%
+```
