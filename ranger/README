@@ -1,0 +1,25 @@
+will need patching to remove mouse support
+
+netbsd-curses does not seem to have this.
+
+
+```
+→ creating symlinks for ranger...
+→ ranger installed!
+% ranger
+Traceback (most recent call last):
+  File "/bin/ranger", line 36, in <module>
+    sys.exit(ranger.main())  # pylint: disable=no-member
+  File "//src/pkgs/python3/lib/python3.7/site-packages/ranger/core/main.py", line 34, in main
+    from ranger.core.fm import FM
+  File "//src/pkgs/python3/lib/python3.7/site-packages/ranger/core/fm.py", line 22, in <module>
+    from ranger.gui.ui import UI
+  File "//src/pkgs/python3/lib/python3.7/site-packages/ranger/gui/ui.py", line 18, in <module>
+    from .mouse_event import MouseEvent
+  File "//src/pkgs/python3/lib/python3.7/site-packages/ranger/gui/mouse_event.py", line 9, in <module>
+    class MouseEvent(object):
+  File "//src/pkgs/python3/lib/python3.7/site-packages/ranger/gui/mouse_event.py", line 12, in MouseEvent
+    curses.BUTTON1_PRESSED,
+AttributeError: module 'curses' has no attribute 'BUTTON1_PRESSED'
+%
+```
