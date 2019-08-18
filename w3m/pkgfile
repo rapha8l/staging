@@ -1,0 +1,14 @@
+info='Text-based Web browser as well as pager'
+version='0.5.3'
+source=http://netcologne.dl.sourceforge.net/project/$name/$name/$name-$version/$name-$version.tar.gz
+deps='netbsd-curses libressl gc'
+sha256=e994d263f2fd2c22febfbe45103526e00145a7674a0fda79c822b97c2770a9e3
+prebuild() {
+    # w3m doesnt know what musl is
+    unset BUILD TARGET HOST
+}
+build() { 
+    bonsai_configure --disable-color --disable-mouse --enable-gopher --prefix=/src/pkgs --exec-prefix=/src/pkgs
+    bonsai_make
+    bonsai_make install
+}
