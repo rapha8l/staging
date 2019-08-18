@@ -1,13 +1,22 @@
 info='GNU Midnight Commander (console file manager)'
 version=4.8.23
 source=http://ftp.midnight-commander.org/$name-$version.tar.xz
-deps=glib
+deps='netbsd-curses glib'
 sha256=dd7f7ce74183307b0df25b5c3e60ad3293fd3d3d27d2f37dd7a10efce13dff1c
 build() {
-    bonsai_configure --with-screen=ncurses
+    LIBS='-lncursesw -ltinfo' \
+    bonsai_configure \
+        --with-screen=ncurses \
+        --without-gpm-mouse \
+        --without-subshell \
+        --disable-mclib \
+        --disable-aspell \
+        --disable-vfs \
+        --disable-doxygen-doc \
+        --disable-doxygen-html
     bonsai_make
     bonsai_make install
 }
 postbuild() {
-    rm "$pkg"/usr/lib/mc/*/README*
+    find "${pkg:?}"/lib/mc -name 'README*' -exec rm "{}" \;
 }
