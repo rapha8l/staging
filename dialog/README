@@ -1,0 +1,26 @@
+fails at:
+```
+tatic-libubsan -Wl,--gc-sections -pipe -Wformat -fexceptions -fstack-protector-strong -fstack-clash-protection -fasynchronous-unwind-tables -fcf-protection -Wl,-z,defs -Wl,-z,now -Wl,-z,relro -Wl,-z,noexecstack -Wl,-z,nodlopen -Wl,-z,nodump -s -w -Os -pipe -fstack-protector-strong -static --static -no-pie -Wl,-Bstatic -static-libgcc -Wl,--gc-sections -static-libstdc++ -static-libasan -static-libtsan -static-liblsan -static-libubsan  -I. -I//src/work/dialog  -s -w -Os -pipe -fstack-protector-strong -static --static -no-pie -Wl,-Bstatic -static-libgcc -Wl,--gc-sections -static-libstdc++ -static-libasan -static-libtsan -static-liblsan -static-libubsan -D_FORTIFY_SOURCE=2 -D_GLIBCXX_ASSERTIONS -DHAVE_CONFIG_H -DLOCALEDIR=\"//src/pkgs/dialog/share/locale\" -c timebox.c
+In file included from fselect.c:24:
+fselect.c: In function 'display_list':
+./dialog.h:249:43: error: dereferencing pointer to incomplete type 'WINDOW' {aka 'struct __window'}
+  249 | #define getparyx(win,y,x) (y = (win)?(win)->_pary:ERR, x = (win)?(win)->_parx:ERR)
+      |                                           ^~
+fselect.c:241:2: note: in expansion of macro 'getparyx'
+  241 |  getparyx(list->win, y, x);
+      |  ^~~~~~~~
+fselect.c: In function 'fill_lists':
+fselect.c:464:2: error: unknown type name 'DIR'
+  464 |  DIR *dp;
+      |  ^~~
+fselect.c:35:33: error: dereferencing pointer to incomplete type 'struct direct'
+   35 | # define NAMLEN(dirent) (dirent)->d_namlen
+      |                                 ^~
+fselect.c:489:16: note: in expansion of macro 'NAMLEN'
+  489 |   size_t len = NAMLEN(de);
+      |                ^~~~~~
+//bin/gcc -static --static -Wl,-Bstatic -static-libgcc -no-pie -fpic -static-libstdc++ -static-libasan -static-libtsan -static-liblsan -static-libubsan -Wl,--gc-sections -pipe -Wformat -fexceptions -fstack-protector-strong -fstack-clash-protection -fasynchronous-unwind-tables -fcf-protection -Wl,-z,defs -Wl,-z,now -Wl,-z,relro -Wl,-z,noexecstack -Wl,-z,nodlopen -Wl,-z,nodump -s -w -Os -pipe -fstack-protector-strong -static --static -no-pie -Wl,-Bstatic -static-libgcc -Wl,--gc-sections -static-libstdc++ -static-libasan -static-libtsan -static-liblsan -static-libubsan  -I. -I//src/work/dialog  -s -w -Os -pipe -fstack-protector-strong -static --static -no-pie -Wl,-Bstatic -static-libgcc -Wl,--gc-sections -static-libstdc++ -static-libasan -static-libtsan -static-liblsan -static-libubsan -D_FORTIFY_SOURCE=2 -D_GLIBCXX_ASSERTIONS -DHAVE_CONFIG_H -DLOCALEDIR=\"//src/pkgs/dialog/share/locale\" -c buildlist.c
+make: *** [makefile:147: fselect.o] Error 1
+make: *** Waiting for unfinished jobs....
+→ error: make  failed for dialog
+```
