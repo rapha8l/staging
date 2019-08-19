@@ -1,0 +1,11 @@
+info='GNU implementation of the Forth 2012 programming language'
+version=0.7.3
+source=http://mirrors.kernel.org/gnu/$name/$name-$version.tar.gz
+deps='libffi m4 libtool'
+sha256=2f62f2233bf022c23d01c920b1556aa13eab168e3236b13352ac5e9f18542bb0
+build() {
+    CFLAGS="$CFLAGS -std=gnu99" \
+    bonsai_configure --without-check
+    bonsai_make
+    bonsai_make install
+}

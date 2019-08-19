@@ -1,0 +1,16 @@
+```
+emacs -batch -f batch-byte-compile gforth.el
+make: emacs: Command not found
+make: [Makefile:913: gforth.elc] Error 127 (ignored)
+echo ": version-string s\" 0.7.3\" ;" > kernel/version.fs
+./preforth -p ".:~+:." -e 's" mach16b.fs"' ./kernel/main.fs -e "save-cross kernl16b.fi- //bin/gforth-0.7.3 bye"
+You need to configure with a gforth in $PATH to build this part
+make: *** [Makefile:716: kernl16b.fi-] Error 1
+make: *** Waiting for unfinished jobs....
+//bin/gcc  -s -fdata-sections -ffunction-sections -static --static -export-dynamic engine-ll-reg.o engine2-ll-reg.o main-ll-reg.o io.o signals.o support-ll-reg.o   -lffi -lltdl -lm   -o gforth-ll-reg
+make[3]: Leaving directory '/src/work/gforth/engine'
+make[2]: Leaving directory '/src/work/gforth'
+make[1]: Leaving directory '/src/work/gforth'
+→ error: make  failed for gforth
+%
+```
