@@ -1,7 +1,5 @@
 // patch taken from KISS Linux
 // http://github.com/kisslinux/repo/blob/master/core/libelf/patches/preprocessor-warnings.patch
-diff --git lib/elf_repl.h lib/elf_repl.h
-index c5cf90f..7e1e8df 100644
 --- lib/elf_repl.h
 +++ lib/elf_repl.h
 @@ -45,7 +45,7 @@ typedef __libelf_u32_t		Elf32_Word;
@@ -139,8 +137,6 @@ index c5cf90f..7e1e8df 100644
  
  typedef struct {
      Elf64_Xword     	c_tag;
-diff --git lib/gelf.h lib/gelf.h
-index 5af0558..98a759c 100644
 --- lib/gelf.h
 +++ lib/gelf.h
 @@ -22,15 +22,15 @@
@@ -180,8 +176,6 @@ index 5af0558..98a759c 100644
  typedef Elf64_Verdef	GElf_Verdef;
  typedef Elf64_Verneed	GElf_Verneed;
  typedef Elf64_Verdaux	GElf_Verdaux;
-diff --git lib/libelf.h lib/libelf.h
-index 3ebd0f3..788482d 100644
 --- lib/libelf.h
 +++ lib/libelf.h
 @@ -25,7 +25,7 @@
@@ -202,8 +196,6 @@ index 3ebd0f3..788482d 100644
  /*
   * 64-bit ELF functions
   * Not available on all platforms
-diff --git lib/sys_elf.h.in lib/sys_elf.h.in
-index b71a20d..722051b 100644
 --- lib/sys_elf.h.in
 +++ lib/sys_elf.h.in
 @@ -68,7 +68,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
@@ -233,8 +225,6 @@ index b71a20d..722051b 100644
  typedef __libelf_u64_t	Elf64_Addr;
  typedef __libelf_u16_t	Elf64_Half;
  typedef __libelf_u64_t	Elf64_Off;
-diff --git lib/sys_elf.h.w32 lib/sys_elf.h.w32
-index 0f93c55..7360104 100644
 --- lib/sys_elf.h.w32
 +++ lib/sys_elf.h.w32
 @@ -68,7 +68,7 @@
