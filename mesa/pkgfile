@@ -1,0 +1,50 @@
+info='Mesa 3D Graphics Library'
+version=19.1.4
+source=http://$name.freedesktop.org/archive/$name-$version.tar.xz
+deps='bison flex meson samurai zlib expat libdrm python3-mako \
+xorg-libx11 xorg-libxdamage xorg-libxext xorg-libxrandr xorg-libxrender \
+xorg-libxxf86vm xorg-libxcb xorg-libxshmfence xorg-xorgproto'
+sha256=a6d268a7d9edcfd92b6da80f2e34e6e0a7baaa442efbeba2fc66c404943c6bfb
+prebuild() {
+    export CFLAGS="-DGLX_X86_READONLY_TEXT $CFLAGS"
+
+    # fix issues with musl and firefox
+    # see: https://bugs.freedesktop.org/show_bug.cgi?id=35268
+    sed "/pre_args += '-DGLX_USE_TLS'/d" meson.build > tmp
+    mv -f tmp meson.build
+
+    # remove gettext dependency
+    sed 's|.*gettext.*||g' src/util/xmlpool/meson.build > tmp
+    mv -f tmp src/util/xmlpool/meson.build
+}
+build() {
+    # ****NOTE: llvm is needed to build radeon (amd) drivers! TO_DO!
+    #
+    # *** Explanations: ***
+    # -Dplatforms=x11,drm -- drm fails compile, not sure why
+    #
+    CPPFLAGS="$CPPFLAGS $CFLAGS" \
+    CXXFLAGS="$CXXFLAGS $CFLAGS" \
+    meson \
+        --prefix=$PREFIX \
+        --sysconfdir=$PREFIX/etc \
+        --buildtype=release \
+        -Dplatforms=x11 \
+        -Ddri-drivers='' \
+        -Dgallium-drivers=swrast,svga \
+        -Dvulkan-drivers=intel \
+		-Dglx=gallium-xlib \
+        -Dglx-direct=true \
+        -Dllvm=false \
+        -Dgbm=false \
+		-Dglx-read-only-text=true \
+        -Dbuild-tests=false \
+        -Dinstall-intell-gpu-tests=false \
+        -Dshared-glapi=false \
+        -Dshared-llvm=false \
+        -Dtools='' \
+        . output
+
+    ninja -C output
+    ninja -C output install
+}
