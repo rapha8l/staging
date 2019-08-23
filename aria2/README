@@ -1,0 +1,73 @@
+```
+  CXX      util.lo
+  CXX      util_security.lo
+In file included from util.cc:44:
+/usr/include/sys/signal.h:1:2: warning: #warning redirecting incorrect #include <sys/signal.h> to <signal.h> [-Wcpp]
+    1 | #warning redirecting incorrect #include <sys/signal.h> to <signal.h>
+      |  ^~~~~~~
+  CXX      ValueBase.lo
+  CXX      ValueBaseStructParserStateImpl.lo
+  CXX      ValueBaseStructParserStateMachine.lo
+  CXX      version_usage.lo
+  CXX      wallclock.lo
+  CXX      WatchProcessCommand.lo
+  CXX      WrDiskCache.lo
+  CXX      WrDiskCacheEntry.lo
+  CXX      XmlRpcRequestParserController.lo
+  CXX      OpenedFileCounter.lo
+  CXX      SHA1IOFile.lo
+  CXX      EvictSocketPoolCommand.lo
+  CXX      WebSocketInteractionCommand.lo
+  CXX      WebSocketResponseCommand.lo
+  CXX      WebSocketSession.lo
+  CXX      WebSocketSessionMan.lo
+  CXX      XmlAttr.lo
+  CXX      XmlParser.lo
+  CXX      ExpatXmlParser.lo
+  CXX      XmlRpcDiskWriter.lo
+  CXX      XmlRpcRequestParserStateImpl.lo
+  CXX      XmlRpcRequestParserStateMachine.lo
+  CXX      FallocFileAllocationIterator.lo
+  CXX      EpollEventPoll.lo
+  CXX      LibsslARC4Encryptor.lo
+  CXX      LibsslDHKeyExchange.lo
+  CXX      LibsslTLSContext.lo
+  CXX      LibsslTLSSession.lo
+  CXX      LibsslMessageDigestImpl.lo
+  CXX      GZipDecodingStreamFilter.lo
+LibsslMessageDigestImpl.cc: In constructor 'aria2::MessageDigestBase<init_fn>::MessageDigestBase()':
+LibsslMessageDigestImpl.cc:69:26: error: call of overloaded 'EVP_MD_CTX_reset(EVP_MD_CTX*&)' is ambiguous
+   69 |     EVP_MD_CTX_reset(ctx_);
+      |                          ^
+LibsslMessageDigestImpl.cc:55:5: note: candidate: 'int aria2::{anonymous}::EVP_MD_CTX_reset(EVP_MD_CTX*)'
+   55 | int EVP_MD_CTX_reset(EVP_MD_CTX* ctx)
+      |     ^~~~~~~~~~~~~~~~
+In file included from LibsslMessageDigestImpl.cc:38:
+/usr/include/openssl/evp.h:553:5: note: candidate: 'int EVP_MD_CTX_reset(EVP_MD_CTX*)'
+  553 | int EVP_MD_CTX_reset(EVP_MD_CTX *ctx);
+      |     ^~~~~~~~~~~~~~~~
+LibsslMessageDigestImpl.cc: In destructor 'virtual aria2::MessageDigestBase<init_fn>::~MessageDigestBase()':
+LibsslMessageDigestImpl.cc:72:54: error: call of overloaded 'EVP_MD_CTX_free(EVP_MD_CTX*&)' is ambiguous
+   72 |   virtual ~MessageDigestBase() { EVP_MD_CTX_free(ctx_); }
+      |                                                      ^
+LibsslMessageDigestImpl.cc:51:6: note: candidate: 'void aria2::{anonymous}::EVP_MD_CTX_free(EVP_MD_CTX*)'
+   51 | void EVP_MD_CTX_free(EVP_MD_CTX* ctx) { EVP_MD_CTX_destroy(ctx); }
+      |      ^~~~~~~~~~~~~~~
+In file included from LibsslMessageDigestImpl.cc:38:
+/usr/include/openssl/evp.h:551:6: note: candidate: 'void EVP_MD_CTX_free(EVP_MD_CTX*)'
+  551 | void EVP_MD_CTX_free(EVP_MD_CTX *ctx);
+      |      ^~~~~~~~~~~~~~~
+  CXX      GZipEncoder.lo
+  CXX      GZipFile.lo
+make[3]: *** [Makefile:2305: LibsslMessageDigestImpl.lo] Error 1
+make[3]: *** Waiting for unfinished jobs....
+make[3]: Leaving directory '/src/work/aria2/src'
+make[2]: *** [Makefile:2341: all-recursive] Error 1
+make[2]: Leaving directory '/src/work/aria2/src'
+make[1]: *** [Makefile:556: all-recursive] Error 1
+make[1]: Leaving directory '/src/work/aria2'
+make: *** [Makefile:467: all] Error 2
+→ error: make  failed for aria2
+%
+
+```

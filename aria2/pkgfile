@@ -1,0 +1,24 @@
+info='download utility supporting torrents and magnet links'
+version=1.34.0
+source=http://github.com/$name/$name/releases/download/release-$version/$name-$version.tar.xz
+deps='libressl zlib libgmp expat libtool'
+sha256=3a44a802631606e138a9e172a3e9f5bcbaac43ce2895c1d8e2b46f30487e77a3
+build() {
+    bonsai_configure \
+        --enable-ssl \
+        --enable-bittorrent \
+        --enable-metalink \
+        --enable-websocket \
+        --enable-epoll \
+        --disable-libaria2 \
+        --disable-werror \
+        --without-appletls \
+        --without-gnutls \
+        --without-libnettle \
+        --without-libgcrypt \
+        --without-sqlite3 \
+        --without-libcares \
+        --with-bashcompletiondir="$sucks"
+    bonsai_make
+    bonsai_make install
+}
