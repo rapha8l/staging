@@ -1,0 +1,20 @@
+info='FreeType and HarfBuzz font rendering libraries'
+version=2.5.3+2.10.1 1
+#source=
+deps=
+#sha256=
+
+harffbuz_source=http://freedesktop.org/software/harfbuzz/release/harfbuzz-2.5.3.tar.xz harfbuzz
+freetype_source=http://download-mirror.savannah.gnu.org/releases/freetype/freetype-2.10.1.tar.xz freetype
+
+prebuild() {
+    :
+}
+build() {
+    bonsai_configure
+    bonsai_make
+    bonsai_make install
+}
+postbuild() {
+    :
+}
