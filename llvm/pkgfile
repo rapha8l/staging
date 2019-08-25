@@ -10,15 +10,16 @@ build() {
     # disable our static flags, instead use cmake DYLIB= flags
     #getflags
 
+    # -DBUILD_SHARED_LIBS=OFF \
+
     cmake .. -G Ninja \
         -DCMAKE_INSTALL_PREFIX=/ \
         -DCMAKE_BUILD_TYPE=Release \
-        -DLLVM_TARGETS_TO_BUILD='host;X86;AMDGPU' \
+        -DLLVM_TARGETS_TO_BUILD='host;AMDGPU' \
         -DLLVM_HOST_TRIPLE="$(gcc -dumpmachine)" \
         -DLLVM_PARALLEL_COMPILE_JOBS="${jobs:-1}" \
         -DLLVM_BUILD_LLVM_DYLIB=OFF \
         -DLLVM_LINK_LLVM_DYLIB=OFF \
-        -DBUILD_SHARED_LIBS=OFF \
         -DLLVM_INCLUDE_EXAMPLES=OFF \
         -DLLVM_INCLUDE_TESTS=OFF \
         -DLLVM_BUILD_DOCS=OFF \

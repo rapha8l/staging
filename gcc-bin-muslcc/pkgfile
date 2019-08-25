@@ -3,6 +3,15 @@ version=9.1.0
 source=http://musl.cc/x86_64-linux-musl-native.tgz
 sha512=f83f6f5042e974d708dc9426b42364077ab2fc45540f42146bf2a606c656f8165cfd6bb57caa982fb04db2889db25914bb6f5eab8983d555308ec19bba1b8ddc
 build() {
+    rm -rf "${pkgs:?}"/${name:?} 2>/dev/null ||:
+
+    # remove link to prevent broken loop
+    rm usr
+
     cd ..
-    cp -rf $name/*  "$pkgs"/$name
+    cp -rf $name  "$pkgs"/
+
+    # recreate the link
+    cd "$pkgs"/$name
+    ln -s . usr
 }

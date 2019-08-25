@@ -1,0 +1,14 @@
+[899/904] Compiling C object 'src/gallium/drivers/svga/632dba7@@svga@sta/svga_cmd_vgpu10.c.o'.
+[900/904] Compiling C object 'src/gallium/drivers/svga/632dba7@@svga@sta/svga_cmd.c.o'.
+[901/904] Linking static target src/gallium/drivers/svga/libsvga.a.
+[902/904] Linking target src/gallium/targets/xa/libxatracker.so.2.5.0.
+[903/904] Linking static target src/mesa/libmesa_gallium.a.
+[904/904] Linking target src/gallium/targets/libgl-xlib/libGL.so.1.5.0.
+/src/pkgs/gcc-bin/bin/../lib/gcc/x86_64-linux-musl/9.1.0/../../../../x86_64-linux-musl/bin/ld: //lib/../lib/libstdc++.a(cp-demangle.o): relocation R_X86_64_32S against `.rodata' can not be used when making a shared object; recompile with -fPIC
+/src/pkgs/gcc-bin/bin/../lib/gcc/x86_64-linux-musl/9.1.0/../../../../x86_64-linux-musl/bin/ld: //lib/../lib/libstdc++.a(ios_failure.o): relocation R_X86_64_32S against symbol `_ZTVNSt8ios_base7failureE' can not be used when making a shared object; recompile with -fPIC
+/src/pkgs/gcc-bin/bin/../lib/gcc/x86_64-linux-musl/9.1.0/../../../../x86_64-linux-musl/bin/ld: //lib/../lib/libstdc++.a(misc-inst.o): relocation R_X86_64_32 against symbol `__gxx_personality_v0' can not be used when making a shared object; recompile with -fPIC
+/src/pkgs/gcc-bin/bin/../lib/gcc/x86_64-linux-musl/9.1.0/../../../../x86_64-linux-musl/bin/ld: //lib/../lib/libstdc++.a(monetary_members.o): relocation R_X86_64_32S against symbol `_ZTVSt18__moneypunct_cacheIcLb1EE' can not be used when making a shared object; recompile with -fPIC
+/src/pkgs/gcc-bin/bin/../lib/gcc/x86_64-linux-musl/9.1.0/../../../../x86_64-linux-musl/bin/ld: //lib/../lib/libstdc++.a(numeric_members.o): relocation R_X86_64_32S against symbol `_ZTVSt16__numpunct_cacheIcE' can not be used when making a shared object; recompile with -fPIC
+/src/pkgs/gcc-bin/bin/../lib/gcc/x86_64-linux-musl/9.1.0/../../../../x86_64-linux-musl/bin/ld: final link failed: nonrepresentable section on output
+collect2: error: ld returned 1 exit status
+ninja: subcommand failed
