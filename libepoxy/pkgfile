@@ -1,0 +1,8 @@
+info='OpenGL function pointer management library'
+version=1.5.3
+source=http://github.com/anholt/$name/archive/$version.tar.gz
+deps='mesa meson samurai'
+sha256=c2f1e2c9c12dcc57dee07cd4ca47de83cf19d0226a225b695066ce58ebb4b117
+build() {
+    :
+}
