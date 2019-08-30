@@ -1,0 +1,27 @@
+info='GTK+ image loading library'
+version=2.38.1
+source=http://download.gnome.org/sources/$name/${version%.*}/$name-$version.tar.xz
+deps='xorg-libx11 glib libpng shared-mime-info meson samurai'
+sha256=f19ff836ba991031610dcc53774e8ca436160f7d981867c8c3a37acfe493ab3a
+prebuild() {
+    # don't build tests or gettext
+    sed "s|subdir('tests')||g" meson.build > tmp ; mv -f tmp meson.build
+    sed "s|subdir('po')||g"    meson.build > tmp ; mv -f tmp meson.build
+}
+build() {
+    meson \
+        --default-library=static \
+        --prefix="$pkg" \
+        --optimization=s \
+        --buildtype=release \
+        --sysconfdir=/etc \
+        -Dgir=false \
+        -Djasper=false \
+        -Dpng=true \
+        -Ddocs=false \
+        -Dman=false \
+        -Dinstalled_tests=false \
+        . output
+    ninja -C output
+    ninja -C output install
+}
