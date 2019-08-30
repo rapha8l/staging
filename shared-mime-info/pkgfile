@@ -1,0 +1,54 @@
+info='Common data-type database'
+version=1.12
+source=http://gitlab.freedesktop.org/xdg/$name/uploads/80c7f1afbcad2769f38aeb9ba6317a51/$name-$version.tar.xz
+deps='glib libxml2 zlib'
+sha256=18b2f0fe07ed0d6f81951a5fd5ece44de9c8aeb4dc5bb20d4f595f6cc6bd403e
+prebuild() {
+    # https://bugs.freedesktop.org/show_bug.cgi?id=70366
+    export ac_cv_func_fdatasync=no
+
+# taken from KISS Linux, removing various dependencies
+# Define our own config.h statically.
+cat > config.h << EOF
+#define HAVE_BIND_TEXTDOMAIN_CODESET 1
+#define HAVE_FDATASYNC 1
+#define HAVE_GETTEXT 0
+#define HAVE_INTTYPES_H 1
+#define HAVE_LC_MESSAGES 1
+#define HAVE_LOCALE_H 1
+#define HAVE_MEMORY_H 1
+#define HAVE_STDINT_H 1
+#define HAVE_STDLIB_H 1
+#define HAVE_STRINGS_H 1
+#define HAVE_STRING_H 1
+#define HAVE_SYS_STAT_H 1
+#define HAVE_SYS_TYPES_H 1
+#define HAVE_UNISTD_H 1
+#define PACKAGE "shared-mime-info"
+#define PACKAGE_BUGREPORT ""
+#define PACKAGE_NAME "shared-mime-info"
+#define PACKAGE_STRING "shared-mime-info $version"
+#define PACKAGE_TARNAME "shared-mime-info"
+#define PACKAGE_URL ""
+#define PACKAGE_VERSION "$version"
+#define STDC_HEADERS 1
+#define VERSION "$version"
+EOF
+
+    # sed 's/<config.h>/"config.h"/' update-mime-database.c > tmp
+    # mv -f tmp update-mime-database.c
+}
+build() {
+    # bonsai_configure
+    # bonsai_make
+    # bonsai_make install
+    set -x
+    ${CC:-gcc} $CFLAGS $LDFLAGS \
+        $(pkgconf --static --libs --cflags glib-2.0 libxml-2.0) \
+        -o update-mime-database update-mime-database.c || 
+        die "failed to compile $name"
+    set +x
+}
+postbuild() {
+    update-mime-database /share/mime
+}
