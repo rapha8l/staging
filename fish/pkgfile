@@ -1,0 +1,19 @@
+info="User friendly shell intended mostly for interactive use"
+version=3.0.2
+source="https://github.com/fish-shell/fish-shell/releases/download/${version}/fish-${version}.tar.gz"
+sha256=14728ccc6b8e053d01526ebbd0822ca4eb0235e6487e832ec1d0d22f1395430e
+deps="netbsd-curses libpcre2"
+
+build() {
+    LIBS='lncursesw' \
+    bonsai_configure \
+        --without-included-pcre2 \
+        --disable-internal-wcwidth
+    bonsai_make
+    bonsai_make install
+}
+
+postbuild() {
+    # Starting with fish-3.0.0 this is a skeleton file with only comments
+    rm -f "${DESTDIR}/usr/etc/fish/config.fish"
+}
