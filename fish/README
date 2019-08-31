@@ -1,0 +1,33 @@
+bad char* conversions
+
+```
+src/output.h:35:46: note: in definition of macro 'writembs_nofail'
+   35 | #define writembs_nofail(mbs) writembs_check((mbs), #mbs, false, __FILE__, __LINE__)
+      |                                              ^~~
+src/output.h:33:27: note:   initializing argument 1 of 'void writembs_check(char*, const char*, bool, const char*, long int)'
+   33 | void writembs_check(char *mbs, const char *mbs_name, bool critical, const char *file, long line);
+      |                     ~~~~~~^~~
+src/builtin_set_color.cpp:208:25: error: invalid conversion from 'const char*' to 'char*' [-fpermissive]
+  208 |         writembs_nofail(enter_dim_mode);
+src/output.h:35:46: note: in definition of macro 'writembs_nofail'
+   35 | #define writembs_nofail(mbs) writembs_check((mbs), #mbs, false, __FILE__, __LINE__)
+      |                                              ^~~
+src/output.h:33:27: note:   initializing argument 1 of 'void writembs_check(char*, const char*, bool, const char*, long int)'
+   33 | void writembs_check(char *mbs, const char *mbs_name, bool critical, const char *file, long line);
+      |                     ~~~~~~^~~
+src/builtin_set_color.cpp:212:25: error: invalid conversion from 'const char*' to 'char*' [-fpermissive]
+  212 |         writembs_nofail(enter_reverse_mode);
+src/output.h:35:46: note: in definition of macro 'writembs_nofail'
+   35 | #define writembs_nofail(mbs) writembs_check((mbs), #mbs, false, __FILE__, __LINE__)
+      |                                              ^~~
+src/output.h:33:27: note:   initializing argument 1 of 'void writembs_check(char*, const char*, bool, const char*, long int)'
+   33 | void writembs_check(char *mbs, const char *mbs_name, bool critical, const char *file, long line);
+      |                     ~~~~~~^~~
+src/builtin_set_color.cpp:214:25: error: invalid conversion from 'const char*' to 'char*' [-fpermissive]
+  214 |         writembs_nofail(enter_standout_mode);
+src/output.h:35:46: note: in definition of macro 'writembs_nofail'
+   35 | #define writembs_nofail(mbs) writembs_check((mbs), #mbs, false, __FILE__, __LINE__)
+      |                                              ^~~
+src/output.h:33:27: note:   initializing argument 1 of 'void writembs_check(char*, const char*, bool, const char*, long int)'
+   33 | void writembs_check(char *mbs, const char *mbs_name, bool critical, const char *file, long line);
+```
