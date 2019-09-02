@@ -1,0 +1,16 @@
+info='X11 intel video driver'
+version=2.99.917
+source=http://x.org/releases/individual/driver/${name#xorg-}-$version.tar.bz2
+deps='xorg-server xorg-libxscrnsaver xorg-libxinerama xorg-libxrandr \
+xorg-libxdamage xorg-libxfixes xorg-libxcursor xorg-libxshmfence xorg-libx11 \
+xorg-libxrender xorg-libxext xorg-libpixman xorg-libxcb'
+# xtst xcb-dri3 xcb-sync
+sha256=00b781eea055582820a123c47b62411bdf6aabf4f03dc0568faec55faf9667c9
+build() {
+    bonsai_configure --enable-tools
+    bonsai_make
+    bonsai_make install
+}
+postbuild() {
+    :
+}
