@@ -4,19 +4,20 @@ source=http://ftp.midnight-commander.org/$name-$version.tar.xz
 deps='netbsd-curses glib'
 sha256=dd7f7ce74183307b0df25b5c3e60ad3293fd3d3d27d2f37dd7a10efce13dff1c
 build() {
-    LIBS='-lncursesw -ltinfo' \
+    # export LIBS='-lncursesw -ltinfo'
     bonsai_configure \
         --with-screen=ncurses \
+        --with-ncurses-includes="$PKGS"/netbsd-curses/include \
+        --with-ncurses-libs="$PKGS"/netbsd-curses/lib \
+        --with-search-engine=glib \
         --without-gpm-mouse \
         --without-subshell \
         --disable-mclib \
         --disable-aspell \
-        --disable-vfs \
-        --disable-doxygen-doc \
-        --disable-doxygen-html
+        --disable-vfs
     bonsai_make
     bonsai_make install
 }
 postbuild() {
-    find "${pkg:?}"/lib/mc -name 'README*' -exec rm "{}" \;
+    find $pkg/lib/mc -name 'README*' -exec rm "{}" \;
 }
