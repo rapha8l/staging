@@ -1,0 +1,17 @@
+```
+-o libsudo_noexec.la sudo_noexec.lo -avoid-version -rpath /lib/sudo -shrext .so
+slibtool-static: link: ln -s /dev/null .libs/libsudo_noexec.a.disabled
+slibtool-static: link: ln -s /dev/null .libs/libsudo_noexec.so.disabled
+slibtool-static: link: ln -s ../libsudo_noexec.la .libs/libsudo_noexec.la
+slibtool-static: link: ln -s ../libsudo_noexec.la .libs/libsudo_noexec.lai
+sed 's/libsudo_noexec/sudo_noexec/g' libsudo_noexec.la > sudo_noexec.la
+if test -f .libs/libsudo_noexec.lai; then sed 's/libsudo_noexec/sudo_noexec/g' .libs/libsudo_noexec.lai > .libs/sudo_noexec.lai; fi
+cp -p .libs/libsudo_noexec.so .libs/sudo_noexec.so
+cp: stat .libs/libsudo_noexec.so: No such file or directory
+make[1]: *** [Makefile:173: sudo_noexec.la] Error 1
+make[1]: *** Waiting for unfinished jobs....
+make[1]: Leaving directory '/src/work/sudo/src'
+make: *** [Makefile:97: all] Error 2
+→ error: make CFLAGS=-s -Os -pipe -w -D_FORTIFY_SOURCE=2 -fstack-protector-strong -fstack-clash-protection -fasynchronous-unwind-tables -fcf-protection -fexceptions -static --static -static-libgcc -static-libstdc++ -fpic LDFLAGS=-s -fdata-sections -ffunction-sections -Wl,--gc-sections -Wl,-z,relro -Wl,-z,noexecstack -Wl,-z,nodump -static --static -Wl,-z,now -Wl,-z,nodlopen failed for sudo
+%
+```
