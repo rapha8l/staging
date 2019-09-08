@@ -1,0 +1,5 @@
+info='GNU Debugger'
+version=8.3
+source=http://mirrors.kernel.org/gnu/${name#gnu-}/${name#gnu-}-$version.tar.xz
+deps=netbsd-curses
+sha256=802f7ee309dcc547d65a68d61ebd6526762d26c3051f52caebe2189ac1ffd72e
