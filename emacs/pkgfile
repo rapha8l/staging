@@ -4,5 +4,12 @@ source="ftp.gnu.org/gnu/$name/$name-$version.tar.xz"
 deps='netbsd-curses perl gawk'
 sha256=151ce69dbe5b809d4492ffae4a4b153b2778459de6deb26f35691e1281a9c58e
 build() {
-    bonsai_configure --without-x --without-sound --with-modules --with-gnutls=no
+    bonsai_configure \
+        --without-x \
+        --without-sound \
+        --without-modules \
+        --with-gnutls=no \
+        --disable-build-details \
+        --disable-profiling \
+        --disable-link-time-optimization
 }
