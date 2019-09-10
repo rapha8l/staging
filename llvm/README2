@@ -1,0 +1,28 @@
+
+[1197/1807] Linking CXX static library lib/libLLVMObjCARCOpts.a
+[1198/1807] Building CXX object lib/Transforms/Hello/CMakeFiles/LLVMHello.dir/Hello.cpp.o
+[1199/1807] Linking CXX shared module lib/LLVMHello.so
+[1200/1807] Building CXX object lib/Transforms/Vectorize/CMakeFiles/LLVMVectorize.dir/VPlanVerifier.cpp.o
+ninja: job failed: : && /bin/g++ -fPIC -s -Os -pipe -w -fstack-protector-strong -fstack-clash-protection -fasynchronous-unwind-tables -fcf-protection -fexceptions -s -Os -pipe -w -fstack-protector-strong -fstack-clash-protection -fasynchronous-unwind-tables -fcf-protection -fexceptions -static --static -static-libgcc -static-libstdc++ -fpic -fPIC -fvisibility-inlines-hidden -Werror=date-time -std=c++1y -Wall -Wextra -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wno-missing-field-initializers -pedantic -Wno-long-long -Wimplicit-fallthrough -Wno-maybe-uninitialized -Wno-class-memaccess -Wno-noexcept-type -Wdelete-non-virtual-dtor -fdiagnostics-color -ffunction-sections -fdata-sections -O3 -DNDEBUG  -s -fdata-sections -ffunction-sections -Wl,--gc-sections -Wl,-z,relro -Wl,-z,noexecstack -Wl,-z,nodump -static --static -Wl,-z,now -Wl,-z,nodlopen -Wl,-z,nodelete   -Wl,-rpath-link,//src/work/llvm/build/./lib
+ -Wl,-O3 -Wl,--gc-sections  -Wl,--version-script,"//src/work/llvm/build/lib/Transforms/Hello/LLVMHello.exports" -shared  -o lib/LLVMHello.so lib/Transforms/Hello/CMakeFiles/LLVMHello.dir/Hello.cpp.o  -Wl,-rpath,"\$ORIGIN/../lib" && :
+/src/pkgs/gcc-bin/bin/../lib/gcc/x86_64-linux-musl/9.1.0/../../../../x86_64-linux-musl/bin/ld: //lib/../lib/libstdc++.a(new_op.o): relocation R_X86_64_32 against symbol `_ZNSt9bad_allocD1Ev' can not be used when making a shared object; recompile with -fPIC
+/src/pkgs/gcc-bin/bin/../lib/gcc/x86_64-linux-musl/9.1.0/../../../../x86_64-linux-musl/bin/ld: //lib/../lib/libstdc++.a(si_class_type_info.o): relocation R_X86_64_32S against symbol `_ZTVN10__cxxabiv120__si_class_type_infoE' can not be used when making a shared object; recompile with -fPIC
+/src/pkgs/gcc-bin/bin/../lib/gcc/x86_64-linux-musl/9.1.0/../../../../x86_64-linux-musl/bin/ld: //lib/../lib/libstdc++.a(bad_alloc.o): relocation R_X86_64_32 against `.rodata._ZNKSt9bad_alloc4whatEv.str1.1' can not be used when making a shared object; recompile with -fPIC
+/src/pkgs/gcc-bin/bin/../lib/gcc/x86_64-linux-musl/9.1.0/../../../../x86_64-linux-musl/bin/ld: //lib/../lib/libstdc++.a(class_type_info.o): relocation R_X86_64_32S against symbol `_ZTVN10__cxxabiv117__class_type_infoE' can not be
+used when making a shared object; recompile with -fPIC
+/src/pkgs/gcc-bin/bin/../lib/gcc/x86_64-linux-musl/9.1.0/../../../../x86_64-linux-musl/bin/ld: //lib/../lib/libstdc++.a(eh_alloc.o): relocation R_X86_64_32 against `.rodata._ZNK9__gnu_cxx24__concurrence_lock_error4whatEv.str1.1' can not be used when making a shared object; recompile with -fPIC
+/src/pkgs/gcc-bin/bin/../lib/gcc/x86_64-linux-musl/9.1.0/../../../../x86_64-linux-musl/bin/ld: //lib/../lib/libstdc++.a(eh_exception.o): relocation R_X86_64_32 against `.rodata._ZNKSt13bad_exception4whatEv.str1.1' can not be used
+when making a shared object; recompile with -fPIC
+/src/pkgs/gcc-bin/bin/../lib/gcc/x86_64-linux-musl/9.1.0/../../../../x86_64-linux-musl/bin/ld: //lib/../lib/libstdc++.a(eh_personality.o): relocation R_X86_64_32S against `.rodata._ZL28read_encoded_value_with_basehmPKhPm' can not
+be used when making a shared object; recompile with -fPIC
+/src/pkgs/gcc-bin/bin/../lib/gcc/x86_64-linux-musl/9.1.0/../../../../x86_64-linux-musl/bin/ld: //lib/../lib/libstdc++.a(eh_terminate.o): relocation R_X86_64_32 against symbol `__gxx_personality_v0' can not be used when making a shared object; recompile with -fPIC
+/src/pkgs/gcc-bin/bin/../lib/gcc/x86_64-linux-musl/9.1.0/../../../../x86_64-linux-musl/bin/ld: //lib/../lib/libstdc++.a(eh_throw.o): relocation R_X86_64_32S against `.text._ZL23__gxx_exception_cleanup19_Unwind_Reason_CodeP17_Unwind_Exception' can not be used when making a shared object; recompile with -fPIC
+/src/pkgs/gcc-bin/bin/../lib/gcc/x86_64-linux-musl/9.1.0/../../../../x86_64-linux-musl/bin/ld: //lib/../lib/libstdc++.a(eh_globals.o): relocation R_X86_64_TPOFF32 against `_ZZN12_GLOBAL__N_110get_globalEvE6global' can not be used
+when making a shared object; recompile with -fPIC
+/src/pkgs/gcc-bin/bin/../lib/gcc/x86_64-linux-musl/9.1.0/../../../../x86_64-linux-musl/bin/ld: //lib/../lib/libstdc++.a(vterminate.o): relocation R_X86_64_32 against `.rodata._ZN9__gnu_cxx27__verbose_terminate_handlerEv.str1.1' can not be used when making a shared object; recompile with -fPIC
+/src/pkgs/gcc-bin/bin/../lib/gcc/x86_64-linux-musl/9.1.0/../../../../x86_64-linux-musl/bin/ld: //lib/../lib/libstdc++.a(cp-demangle.o): relocation R_X86_64_32S against `.rodata' can not be used when making a shared object; recompile with -fPIC
+/src/pkgs/gcc-bin/bin/../lib/gcc/x86_64-linux-musl/9.1.0/../../../../x86_64-linux-musl/bin/ld: final link failed: nonrepresentable section on output
+collect2: error: ld returned 1 exit status
+ninja: subcommand failed
+→ error: llvm build() failed
+%
