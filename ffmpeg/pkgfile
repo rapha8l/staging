@@ -1,4 +1,35 @@
 version=4.2.1
-source=https://ffmpeg.org/releases/$name-$version.tar.xz
-deps=nasm
+source=http://ffmpeg.org/releases/$name-$version.tar.xz
+deps='nasm perl alsa-lib lame libass libogg libtheora \
+libvorbis libwebp libvpx opus wavpack x264 x265 xvidcore'
 sha256=cec7c87e9b60d174509e263ac4011b522385fd0775292e1670ecc1180c9bb6d4
+build() {
+    # --enable-shared \
+    bonsai_configure \
+        --enable-gpl \
+        --enable-version3 \
+        --enable-pic \
+        --enable-ffplay \
+        --enable-avfilter \
+        --enable-postproc \
+        --enable-pthreads \
+        --enable-swresample \
+        --enable-avresample \
+        --enable-libass \
+        --enable-libmp3lame \
+        --enable-libopus \
+        --enable-libvorbis \
+        --enable-libtheora \
+        --enable-libwavpack \
+        --enable-libvpx \
+        --enable-libx264 \
+        --enable-libx265 \
+        --enable-libxvid \
+        --enable-libwebp \
+        --enable-libdrm
+    bonsai_make
+    bonsai_make install
+}
+postbuild() {
+    rm -rf $pkg/share/ffmpeg/examples
+}
