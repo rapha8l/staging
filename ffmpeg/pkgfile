@@ -1,0 +1,4 @@
+version=4.2.1
+source=https://ffmpeg.org/releases/$name-$version.tar.xz
+deps=nasm
+sha256=cec7c87e9b60d174509e263ac4011b522385fd0775292e1670ecc1180c9bb6d4
