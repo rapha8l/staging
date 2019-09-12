@@ -1,0 +1,9 @@
+info='decode, encode, transcode, mux, demux, stream, filter and play anything'
+version=4.2.1
+#deps=xz
+source=https://johnvansickle.com/${name%-bin}/releases/${name%-bin}-$version-amd64-static.tar.xz
+sha256=93584d7bd016fa1ba484610477890e34925bdc88c6e013249bdd963a69485654
+build() {
+    install -D -m 0755 ffmpeg "$pkg"/bin/ffmpeg
+    install -D -m 0755 ffprobe "$pkg"/bin/ffprobe
+}
