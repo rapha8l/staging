@@ -1,6 +1,6 @@
 info='A VIM-inspired filemanager for the console'
 version=1.9.2
-source=http://github.com/$name/$name/archive/v$version.tar.gz
+source=http://$name.github.io/$name-$version.tar.gz
 deps='python3-setuptools less'
 sha256=49a2d8dc5fa7b1c0cac0fa72d4ad704fc7107dee36cb9feb325a42754774d363
 build() {
