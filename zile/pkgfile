@@ -1,0 +1,12 @@
+info='Zile is lossy Emacs'
+version=2.4.14
+source=https://ftp.gnu.org/gnu/$name/$name-$version.tar.gz
+deps='acl gc netbsd-curses'
+sha256=7a78742795ca32480f2bab697fd5e328618d9997d6f417cf1b14e9da9af26b74
+prebuild() {
+    # The amount of options here is probably overkill, but I can't figure it out any other way.
+    export LIBS='-lcurses'
+    export CURSES_LIB='-lcurses'
+    export LDFLAGS='-lcurses'
+    bonsai_configure --without-help2man LIBS='-lcurses' CURSES_LIB='-lcurses' LDLFAGS='-lcurses'
+}
