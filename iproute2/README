@@ -1,0 +1,24 @@
+does not build, also Berkley db isn't detected even if it is installed
+
+```
+    LINK     lnstat
+
+netem
+I../include -o maketable maketable.c -lm
+make[1]: I../include: Command not found
+make[1]: [Makefile:14: maketable] Error 127 (ignored)
+I../include -o normal normal.c -lm
+make[1]: I../include: Command not found
+make[1]: [Makefile:14: normal] Error 127 (ignored)
+I../include -o pareto pareto.c -lm
+make[1]: I../include: Command not found
+make[1]: [Makefile:14: pareto] Error 127 (ignored)
+I../include -o paretonormal paretonormal.c -lm
+make[1]: I../include: Command not found
+make[1]: [Makefile:14: paretonormal] Error 127 (ignored)
+./normal > normal.dist
+/bin/sh: 1: ./normal: not found
+make[1]: *** [Makefile:17: normal.dist] Error 127
+make: *** [Makefile:74: all] Error 2
+→ error: make  failed for iproute2
+```

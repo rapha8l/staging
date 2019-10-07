@@ -1,0 +1,6 @@
+info='Modern TCP/IP traffic control'
+version=5.3.0
+source=http://mirrors.edge.kernel.org/pub/linux/utils/net/$name/$name-$version.tar.xz
+deps='bison flex db'
+sha256=cb1c1e45993a3bd2438543fd4332d70f1726a6e6ff97dc613a8258c993117b3f
+# the patch is taken from alpine linux, thanks
