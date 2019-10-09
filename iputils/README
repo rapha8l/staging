@@ -1,0 +1,29 @@
+Source dir: /src/work/iputils
+Build dir: /src/work/iputils/builddir
+Build type: native build
+Project name: iputils
+Project version: s20190709
+Appending CFLAGS from environment: '-s -Os -pipe -w -fstack-protector-strong -fstack-clash-protection -fasynchronous-unwind-tables -fcf-protection -fexceptions -static --static -static-libgcc -static-libstdc++ -fpic'
+Appending LDFLAGS from environment: '-s -fdata-sections -ffunction-sections -Wl,--gc-sections -Wl,-z,relro -Wl,-z,noexecstack -Wl,-z,nodump -static --static -Wl,-z,now -Wl,-z,nodlopen'
+Appending CPPFLAGS from environment: '-D_FORTIFY_SOURCE=2 -D_FORTIFY_SOURCE=2 -static --static -static-libgcc -static-libstdc++ -fpic'
+C compiler for the build machine: gcc (gcc 9.1.0 "gcc (GCC) 9.1.0")
+Appending CFLAGS from environment: '-s -Os -pipe -w -fstack-protector-strong -fstack-clash-protection -fasynchronous-unwind-tables -fcf-protection -fexceptions -static --static -static-libgcc -static-libstdc++ -fpic'
+Appending LDFLAGS from environment: '-s -fdata-sections -ffunction-sections -Wl,--gc-sections -Wl,-z,relro -Wl,-z,noexecstack -Wl,-z,nodump -static --static -Wl,-z,now -Wl,-z,nodlopen'
+Appending CPPFLAGS from environment: '-D_FORTIFY_SOURCE=2 -D_FORTIFY_SOURCE=2 -static --static -static-libgcc -static-libstdc++ -fpic'
+C compiler for the host machine: gcc (gcc 9.1.0 "gcc (GCC) 9.1.0")
+Build machine cpu family: x86_64
+Build machine cpu: x86_64
+Checking for function "__fpending" : YES
+Checking for function "nanosleep" : YES
+Checking if "struct icmp6_nodeinfo" compiles: NO
+Checking if "struct tm time;" compiles: YES
+Library m found: YES
+Library resolv found: YES
+Checking for function "clock_gettime" : YES
+Library disabler-appears-to-disable-executable-build found: NO
+Library cap found: YES
+
+po/meson.build:2:6: ERROR: Can not do gettext because xgettext is not installed.
+
+A full log can be found at /src/work/iputils/builddir/meson-logs/meson-log.txt
+→ error: configure failed for iputils
