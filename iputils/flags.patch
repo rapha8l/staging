@@ -1,0 +1,15 @@
+--- meson_options.txt.bak	2019-10-10 15:55:14.889990988 +0200
++++ meson_options.txt	2019-10-10 15:57:13.429990412 +0200
+@@ -1,4 +1,4 @@
+-option('USE_CAP', type : 'boolean', value : true,
++option('USE_CAP', type : 'boolean', value : false,
+ 	description : 'Capatiblity support (with libcap)')
+ 
+ option('USE_IDN', type : 'boolean', value : true,
+@@ -56,5 +56,5 @@
+ option('systemdunitdir', type: 'string', value: '',
+ 	description: 'Directory for systemd units')
+ 
+-option('USE_GETTEXT', type: 'boolean', value: true,
++option('USE_GETTEXT', type: 'boolean', value: false,
+ 	description: 'Enable I18N')
