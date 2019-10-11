@@ -1,15 +1,16 @@
 info='The extensible, customizable, self-documenting real-time display editor'
-version=26.2
+version=26.3
 source="ftp.gnu.org/gnu/$name/$name-$version.tar.xz"
-deps='netbsd-curses perl gawk'
-sha256=151ce69dbe5b809d4492ffae4a4b153b2778459de6deb26f35691e1281a9c58e
+deps='gawk netbsd-curses perl libxml2'
+sha256=4d90e6751ad8967822c6e092db07466b9d383ef1653feb2f95c93e7de66d3485 # For 26.2: 151ce69dbe5b809d4492ffae4a4b153b2778459de6deb26f35691e1281a9c58e
+prebuild() {
+    bonsai_configure\
+    --without-all\
+    --with-mailutils\
+    --without-pop\
+    --without-x
+}
 build() {
-    bonsai_configure \
-        --without-x \
-        --without-sound \
-        --without-modules \
-        --with-gnutls=no \
-        --disable-build-details \
-        --disable-profiling \
-        --disable-link-time-optimization
+    bonsai_make
+    bonsai_make install
 }
