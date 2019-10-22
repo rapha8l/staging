@@ -1,0 +1,84 @@
+--- Makefile
++++ Makefile
+@@ -34,19 +34,18 @@
+ 	mkdir -m 0755 -p $(VAR) $(SBIN) $(MAN) $(ETC) $(BASHDIR) $(SHAREDIR) $(LIBDIR)
+ 	sed -e "s/\[INSERT_VERSION_HERE\]/$(RELEASE_VERSION)/" dkms > dkms.versioned
+ 	mv -f dkms.versioned dkms
+-	install -p -m 0755 dkms_common.postinst $(LIBDIR)/common.postinst
+-	install -p -m 0755 dkms $(SBIN)
+-	install -p -m 0755 dkms_autoinstaller $(LIBDIR)
+-	install -p -m 0644 dkms_framework.conf $(ETC)/framework.conf
+-	install -p -m 0644 dkms_dbversion $(VAR)
+-	install -p -m 0644 dkms.bash-completion $(BASHDIR)/dkms
+-	# install compressed manpage with proper timestamp and permissions
++	install -m 0755 dkms_common.postinst $(LIBDIR)/common.postinst
++	install -m 0755 dkms $(SBIN)
++	install -m 0755 dkms_autoinstaller $(LIBDIR)
++	install -m 0644 dkms_framework.conf $(ETC)/framework.conf
++	install -m 0644 dkms_dbversion $(VAR)
++	install -m 0644 dkms.bash-completion $(BASHDIR)/dkms
++	# install compressed manpage with proper permissions
+ 	gzip -c -9 dkms.8 > $(MAN)/dkms.8.gz
+ 	chmod 0644 $(MAN)/dkms.8.gz
+-	touch --reference=dkms.8 $(MAN)/dkms.8.gz
+ 	mkdir   -p -m 0755 $(KCONF)/prerm.d $(KCONF)/postinst.d
+-	install -p -m 0755 kernel_prerm.d_dkms  $(KCONF)/prerm.d/dkms
+-	install -p -m 0755 kernel_postinst.d_dkms $(KCONF)/postinst.d/dkms
++	install -m 0755 kernel_prerm.d_dkms  $(KCONF)/prerm.d/dkms
++	install -m 0755 kernel_postinst.d_dkms $(KCONF)/postinst.d/dkms
+ 
+ DOCFILES=sample.spec sample.conf AUTHORS COPYING README.md sample-suse-9-mkkmp.spec sample-suse-10-mkkmp.spec
+ 
+@@ -56,35 +55,35 @@
+ 
+ install-redhat-sysv: install doc-perms
+ 	mkdir -m 0755 -p  $(INITD)
+-	install -p -m 0755 dkms_mkkerneldoth $(LIBDIR)/mkkerneldoth
+-	install -p -m 0755 dkms_find-provides $(LIBDIR)/find-provides
+-	install -p -m 0755 lsb_release $(LIBDIR)/lsb_release
+-	install -p -m 0644 template-dkms-mkrpm.spec $(ETC)
+-	install -p -m 0644 template-dkms-redhat-kmod.spec $(ETC)
+-	install -p -m 0755 dkms_autoinstaller $(INITD)
++	install -m 0755 dkms_mkkerneldoth $(LIBDIR)/mkkerneldoth
++	install -m 0755 dkms_find-provides $(LIBDIR)/find-provides
++	install -m 0755 lsb_release $(LIBDIR)/lsb_release
++	install -m 0644 template-dkms-mkrpm.spec $(ETC)
++	install -m 0644 template-dkms-redhat-kmod.spec $(ETC)
++	install -m 0755 dkms_autoinstaller $(INITD)
+ 
+ install-redhat-systemd: install doc-perms
+ 	mkdir -m 0755 -p  $(SYSTEMD)
+-	install -p -m 0755 dkms_mkkerneldoth $(LIBDIR)/mkkerneldoth
+-	install -p -m 0755 dkms_find-provides $(LIBDIR)/find-provides
+-	install -p -m 0755 lsb_release $(LIBDIR)/lsb_release
+-	install -p -m 0644 template-dkms-mkrpm.spec $(ETC)
+-	install -p -m 0644 template-dkms-redhat-kmod.spec $(ETC)
+-	install -p -m 0644 dkms.service $(SYSTEMD)
++	install -m 0755 dkms_mkkerneldoth $(LIBDIR)/mkkerneldoth
++	install -m 0755 dkms_find-provides $(LIBDIR)/find-provides
++	install -m 0755 lsb_release $(LIBDIR)/lsb_release
++	install -m 0644 template-dkms-mkrpm.spec $(ETC)
++	install -m 0644 template-dkms-redhat-kmod.spec $(ETC)
++	install -m 0644 dkms.service $(SYSTEMD)
+ 
+ install-doc:
+ 	mkdir -m 0755 -p $(DOCDIR)
+-	install -p -m 0644 $(DOCFILES) $(DOCDIR)
++	install -m 0644 $(DOCFILES) $(DOCDIR)
+ 
+ install-debian: install install-doc
+ 	mkdir   -p -m 0755 $(SHAREDIR)/apport/package-hooks
+-	install -p -m 0755 dkms_apport.py $(SHAREDIR)/apport/package-hooks/dkms_packages.py
++	install -m 0755 dkms_apport.py $(SHAREDIR)/apport/package-hooks/dkms_packages.py
+ 	mkdir   -p -m 0755 $(KCONF)/header_postinst.d
+-	install -p -m 0755 kernel_postinst.d_dkms $(KCONF)/header_postinst.d/dkms
++	install -m 0755 kernel_postinst.d_dkms $(KCONF)/header_postinst.d/dkms
+ 	mkdir   -p -m 0755 $(ETC)/template-dkms-mkdeb/debian
+ 	ln -s template-dkms-mkdeb $(ETC)/template-dkms-mkdsc
+-	install -p -m 0664 template-dkms-mkdeb/Makefile $(ETC)/template-dkms-mkdeb/
+-	install -p -m 0664 template-dkms-mkdeb/debian/* $(ETC)/template-dkms-mkdeb/debian/
++	install -m 0664 template-dkms-mkdeb/Makefile $(ETC)/template-dkms-mkdeb/
++	install -m 0664 template-dkms-mkdeb/debian/* $(ETC)/template-dkms-mkdeb/debian/
+ 	chmod +x $(ETC)/template-dkms-mkdeb/debian/postinst
+ 	chmod +x $(ETC)/template-dkms-mkdeb/debian/prerm
+ 	chmod +x $(ETC)/template-dkms-mkdeb/debian/rules

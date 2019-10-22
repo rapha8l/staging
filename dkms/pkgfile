@@ -1,0 +1,9 @@
+info='Dynamic kernel modules'
+version=2.7.1
+source=http://github.com/dell/$name/archive/v$version.tar.gz
+deps='kernel kmod bash'
+sha256=b30408db599367d8268e3db8de81ff0ad4d0d6da56f426f768baee5c22c15a69
+postbuild() {
+    mv "$pkg"/usr/* "$pkg"/
+    mv "$pkg"/sbin "$pkg"/bin
+}
